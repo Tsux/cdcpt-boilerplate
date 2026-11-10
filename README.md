@@ -1,23 +1,52 @@
 # CDCPT Boilerplate
 
-This CodeceptJS project contains the `Test SauceDemo Website` scenario and page-object samples. The `utils` folder is retained for future demos.
+This CodeceptJS project contains separate Playwright UI and REST API tests. The `utils` folder is retained for future demos.
 
 ## Setup
 
-1. Install dependencies with `npm install`.
-2. Set `TOOLBOX_USERNAME` and `TOOLBOX_PASSWORD` in the environment.
-3. Set `TOOLBOX_URL` to the Toolbox login entry URL when the default URL is
-   not suitable.
-4. Set `file_batch_name` in `config/constants.json` to the workbook name in
-   `config/` (without the `.xlsx` extension).
-
-Run the scenario with:
+Install the project dependencies:
 
 ```sh
-npx codeceptjs run tests/saucedemo-test.ts --steps
+npm install
 ```
 
-The scenario writes its site-check results to `output/`.
+## Playwright UI tests
+
+The UI tests use [codecept.conf.ts](./codecept.conf.ts), which configures the
+Playwright helper. Set the credentials expected by the test in your shell:
+
+```sh
+export TOOLBOX_USERNAME='standard_user'
+export TOOLBOX_PASSWORD='secret_sauce'
+```
+
+Run the SauceDemo UI test:
+
+```sh
+npx codeceptjs run tests/saucedemo_test.ts --steps
+```
+
+## REST API tests
+
+The REST tests use [codecept.api.conf.ts](./codecept.api.conf.ts), which
+configures the REST and JSONResponse helpers without starting a browser. The
+configuration currently targets the Restful Booker API.
+
+Run the REST API test separately:
+
+```sh
+npx codeceptjs run -c codecept.api.conf.ts --steps
+```
+
+The API config selects `tests/restful_booker_test.ts`. To run only the booking
+life-cycle scenario instead of the full API test suite, use:
+
+```sh
+npx codeceptjs run -c codecept.api.conf.ts --steps \
+  --grep 'Create a new booking, update and delete'
+```
+
+Both test configurations write reports and other run output to `output/`.
 
 ## Defect tracking
 
