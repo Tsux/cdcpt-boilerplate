@@ -14,7 +14,7 @@ This CodeceptJS project contains the `Test SauceDemo Website` scenario and page-
 Run the scenario with:
 
 ```sh
-npx codeceptjs run tests/toolbox_migration_checks_test.ts --steps
+npx codeceptjs run tests/saucedemo-test.ts --steps
 ```
 
 The scenario writes its site-check results to `output/`.
