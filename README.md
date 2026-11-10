@@ -1,8 +1,6 @@
 # CDCPT Boilerplate
 
-This CodeceptJS project contains the `Verify Sites in Toolbox` scenario and
-the page-object methods it invokes. The `utils` folder is retained for future
-demos.
+This CodeceptJS project contains the `Test SauceDemo Website` scenario and page-object samples. The `utils` folder is retained for future demos.
 
 ## Setup
 
