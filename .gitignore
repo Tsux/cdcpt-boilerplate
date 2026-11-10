@@ -1,0 +1,16 @@
+## CodeceptJS Automation ignore file  ##
+
+# Ignore CodeceptJS generated files
+package-lock.json
+node_modules
+test/output/*
+output/*
+!output/.gitkeep
+
+# Local credentials
+.env
+.env.*
+!.env.example
+
+# Ignore Mac's file system files
+.DS_Store
